@@ -1,9 +1,8 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(120deg, #f8fafc 0%, #e3e7ed 100%);
+    background: linear-gradient(120deg, #23272f 0%, #2d3748 100%);
     margin: 0;
     min-height: 100vh;
-}
 .container {
     max-width: 900px;
     margin: 40px auto;
@@ -13,10 +12,19 @@ body {
     padding: 32px 40px 40px 40px;
 }
 h1 {
-    color: #2d3748;
-    font-size: 2.4rem;
+    color: #2563eb;
+    font-size: 3rem;
     margin-bottom: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    font-weight: 800;
+    text-align: center;
+    position: relative;
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: headlinePop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
+}
 }
 #tiles-container {
     display: flex;
@@ -75,14 +83,16 @@ h1 {
     align-items: center;
 }
 .modal-content {
-    background: #fff;
+    background: linear-gradient(120deg, #f8fafc 0%, #e3e7ed 100%);
     margin: auto;
-    padding: 32px 28px 24px 28px;
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    max-width: 400px;
+    padding: 48px 40px 36px 40px;
+    border-radius: 24px;
+    box-shadow: 0 12px 48px rgba(37,99,235,0.18);
+    max-width: 600px;
+    min-width: 320px;
     position: relative;
-    animation: modalIn 0.2s;
+    animation: modalIn 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+    border: 2px solid #2563eb22;
 }
 @keyframes modalIn {
     from { opacity: 0; transform: scale(0.95); }
@@ -90,23 +100,41 @@ h1 {
 }
 .close-modal {
     position: absolute;
-    top: 16px;
-    right: 18px;
-    font-size: 1.5rem;
-    color: #64748b;
+    top: 18px;
+    right: 22px;
+    font-size: 2.2rem;
+    color: #2563eb;
     cursor: pointer;
     border: none;
     background: none;
+    transition: color 0.2s;
+}
+.close-modal:hover {
+    color: #1e40af;
 }
 .modal-title {
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: #2563eb;
-    font-weight: 600;
-    margin-bottom: 10px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 .modal-detail {
-    margin-bottom: 12px;
+    margin-bottom: 18px;
     color: #374151;
+    font-size: 1.08rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    padding: 12px 16px;
+    transition: box-shadow 0.2s;
+    word-break: break-word;
+    white-space: pre-line;
 }
 .modal-label {
     font-weight: 500;
@@ -117,7 +145,7 @@ h1 {
         padding: 16px 8px;
     }
     h1 {
-        font-size: 1.5rem;
+        font-size: 2rem;
     }
     #tiles-container {
         gap: 12px;
@@ -129,6 +157,10 @@ h1 {
     }
     .modal-content {
         padding: 18px 8px 12px 8px;
-        max-width: 95vw;
+        max-width: 98vw;
+        min-width: 0;
+    }
+    .modal-title {
+        font-size: 1.3rem;
     }
 }
