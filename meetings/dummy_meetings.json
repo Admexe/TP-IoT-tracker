@@ -1,0 +1,27 @@
+[
+  {
+    "date": "2025-09-20",
+    "time": "10:00",
+    "note": "Project kickoff",
+    "attendees": ["Adam", "Eve"]
+  },
+  {
+    "date": "2025-09-22",
+    "time": "14:30",
+    "note": "Discuss requirements",
+    "attendees": ["Adam", "Eve", "John"]
+  },
+  {
+    "date": "2025-09-25",
+    "time": "09:00",
+    "note": "Review progress",
+    "attendees": ["Adam", "John"]
+  },
+  {
+    "date": "2025-09-27",
+    "time": "11:00",
+    "note": "Final review",
+    "attendees": ["Adam", "Eve", "John"],
+    "progress": "prakticky nulovy"
+  }
+]
