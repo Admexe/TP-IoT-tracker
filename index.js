@@ -10,6 +10,8 @@ function renderTiles(data) {
 		const tile = document.createElement('div');
 		tile.className = 'meeting-tile';
 		tile.tabIndex = 0;
+		// Add meeting number at the top
+		let numbering = `<div class="meeting-number">#${idx + 1}</div>`;
 		// Dynamically show up to 3 keys as summary
 		const keys = Object.keys(meeting);
 		let summary = '';
@@ -18,21 +20,21 @@ function renderTiles(data) {
 			if (Array.isArray(value)) value = value.join(', ');
 			summary += `<div><span class="modal-label">${key}:</span> ${value || ''}</div>`;
 		});
-		tile.innerHTML = summary;
-		tile.addEventListener('click', () => showModal(meeting));
+		tile.innerHTML = numbering + summary;
+		tile.addEventListener('click', () => showModal(meeting, idx + 1));
 		tile.addEventListener('keypress', (e) => {
-			if (e.key === 'Enter' || e.key === ' ') showModal(meeting);
+			if (e.key === 'Enter' || e.key === ' ') showModal(meeting, idx + 1);
 		});
 		container.appendChild(tile);
 	});
 }
 
 // Show modal with meeting details
-function showModal(meeting) {
+function showModal(meeting, number) {
 	const modal = document.getElementById('meeting-modal');
 	const modalContent = document.getElementById('modal-content');
 	let html = '';
-	html += `<div class="modal-title">Meeting Details</div>`;
+	html += `<div class="modal-title">Meeting <span class='meeting-number'>#${number}</span></div>`;
 	Object.keys(meeting).forEach(key => {
 		let value = meeting[key];
 		if (Array.isArray(value)) value = value.join(', ');

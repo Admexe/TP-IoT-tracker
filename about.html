@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - Team Project IoT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div class="container">
+        <h1>About the Project</h1>
+    <script>
+      fetch('navbar.html').then(r => r.text()).then(html => {
+        document.getElementById('navbar-container').innerHTML = html;
+      });
+    </script>
+</body>
+</html>

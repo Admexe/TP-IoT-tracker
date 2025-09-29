@@ -1,3 +1,67 @@
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    background: #23272f;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 32px;
+    box-sizing: border-box;
+    border-bottom: 1.5px solid #374151;
+    margin-bottom: 18px;
+    z-index: 10;
+}
+.nav-logo {
+    display: flex;
+    align-items: center;
+    margin-right: 18px;
+}
+.nav-house {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) drop-shadow(0 2px 6px #0002);
+}
+.nav-link {
+    color: #e3e7ed;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-right: 18px;
+    transition: color 0.2s;
+}
+.nav-link:hover {
+    color: #60a5fa;
+}
+
+/* Team and About page styles */
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-top: 24px;
+    justify-content: center;
+}
+.team-member {
+    background: #23272f;
+    color: #e3e7ed;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    padding: 20px 28px;
+    min-width: 180px;
+    max-width: 220px;
+    text-align: center;
+    font-size: 1.08rem;
+}
+.about-content {
+    color: #e3e7ed;
+    background: #23272f;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+    padding: 24px 28px;
+    margin-top: 24px;
+    font-size: 1.08rem;
+}
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: linear-gradient(120deg, #23272f 0%, #2d3748 100%);
@@ -12,17 +76,17 @@ body {
     padding: 32px 40px 40px 40px;
 }
 h1 {
-    color: #2563eb;
+    color: #111;
     font-size: 3rem;
     margin-bottom: 16px;
     letter-spacing: 2px;
     font-weight: 800;
     text-align: center;
     position: relative;
-    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
     animation: headlinePop 1.2s cubic-bezier(.68,-0.55,.27,1.55);
 }
 }
@@ -33,21 +97,26 @@ h1 {
     margin-top: 24px;
 }
 .meeting-tile {
-    background: #f9fbfd;
+    background: #23272f;
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(37,99,235,0.18);
     padding: 24px 20px 18px 20px;
     min-width: 220px;
     max-width: 260px;
     flex: 1 1 220px;
     cursor: pointer;
-    transition: box-shadow 0.2s, transform 0.2s;
+    transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
     position: relative;
+    color: #e3e7ed;
+    border: 2px solid #374151;
+    outline: none;
 }
-.meeting-tile:hover {
-    box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-    transform: translateY(-2px) scale(1.03);
-    background: #e9f5ff;
+.meeting-tile:focus, .meeting-tile:hover {
+    box-shadow: 0 6px 24px #2563eb55;
+    background: #1e293b;
+    border: 2px solid #374151;
+    z-index: 2;
+    transform: scale(1.04);
 }
 .meeting-date {
     font-size: 1.1rem;
@@ -114,28 +183,34 @@ h1 {
 }
 .modal-title {
     font-size: 2rem;
-    color: #2563eb;
+    color: #111;
     font-weight: 800;
     margin-bottom: 18px;
     text-align: center;
     letter-spacing: 1px;
-    background: linear-gradient(90deg, #2563eb 0%, #60a5fa 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background: none;
+    background-clip: initial;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
 }
 .modal-detail {
     margin-bottom: 18px;
-    color: #374151;
+    color: #e3e7ed;
     font-size: 1.08rem;
-    background: #fff;
+    background: #23272f;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(37,99,235,0.06);
+    box-shadow: 0 2px 8px rgba(37,99,235,0.10);
     padding: 12px 16px;
-    transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s, background 0.2s, color 0.2s;
     word-break: break-word;
     white-space: pre-line;
 }
+.modal-detail:hover, .modal-detail:focus {
+    background: #1e293b;
+    color: #60a5fa;
+    box-shadow: 0 4px 16px #2563eb33;
+}
+
 .modal-label {
     font-weight: 500;
     color: #64748b;
