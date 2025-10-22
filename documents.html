@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dokumenty - Team Project IoT</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .documents-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+        .document-item {
+            background: #23272f;
+            border-radius: 12px;
+            padding: 24px;
+            color: #e3e7ed;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-decoration: none;
+            border: 2px solid #374151;
+        }
+        .document-item:hover {
+            background: #1e293b;
+            transform: translateY(-2px);
+            border-color: #4b5563;
+        }
+        .document-icon {
+            font-size: 2.5rem;
+            color: #4b5563;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        .document-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-align: center;
+            color: #e3e7ed;
+            word-break: break-word;
+        }
+        .document-date {
+            font-size: 0.9rem;
+            color: #9ca3af;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    <div class="container">
+        <h1>Dokumenty</h1>
+        <div class="documents-list">
+            <a href="documents/zapisnica1.pdf" class="document-item">
+                <div class="document-icon">📄</div>
+                <div class="document-name">Zápisnica 1</div>
+                <div class="document-date">22.10.2025</div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Load navbar
+        fetch('navbar.html').then(r => r.text()).then(html => {
+            document.getElementById('navbar-container').innerHTML = html;
+        });
+    </script>
+</body>
+</html>
