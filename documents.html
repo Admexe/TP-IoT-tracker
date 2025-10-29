@@ -51,12 +51,8 @@
     <div id="navbar-container"></div>
     <div class="container">
         <h1>Dokumenty</h1>
-        <div class="documents-list">
-            <a href="documents/zapisnica1.pdf" class="document-item">
-                <div class="document-icon">📄</div>
-                <div class="document-name">Zápisnica 1</div>
-                <div class="document-date">22.10.2025</div>
-            </a>
+        <div class="documents-list" id="documentsList">
+            <!-- Documents will be loaded here dynamically -->
         </div>
     </div>
 
@@ -65,6 +61,38 @@
         fetch('navbar.html').then(r => r.text()).then(html => {
             document.getElementById('navbar-container').innerHTML = html;
         });
+
+        // Hardcoded document references - update this list when adding new documents
+        const documents = [
+            { name: 'zapisnica_1.pdf', title: 'Zápisnica 1', date: '22.10.2025' },
+             { name: 'zapisnica_2.pdf', title: 'Zápisnica 2', date: '' },
+              { name: 'zapisnica_3.pdf', title: 'Zápisnica 3', date: '' }
+            // Add new documents here in the same format
+            // Example:
+            // { name: 'zapisnica2.pdf', title: 'Zápisnica 2', date: '23.10.2025' }
+        ];
+
+        function displayDocuments() {
+            const documentsList = document.getElementById('documentsList');
+            documentsList.innerHTML = '';
+
+            documents.forEach(doc => {
+                const docElement = document.createElement('a');
+                docElement.href = `documents/${doc.name}`;
+                docElement.className = 'document-item';
+                
+                docElement.innerHTML = `
+                    <div class="document-icon">📄</div>
+                    <div class="document-name">${doc.title}</div>
+                    <div class="document-date">${doc.date}</div>
+                `;
+                
+                documentsList.appendChild(docElement);
+            });
+        }
+
+        // Display documents when page loads
+        displayDocuments();
     </script>
 </body>
 </html>
